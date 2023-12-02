@@ -21,8 +21,8 @@ RSpec.describe Bsd, type: :model do
   describe 'Testes de validacao do model Bsd' do
 
     it 'Bsd valido com campos obrigatorios preenchidos?' do
-      @bsd.name = ''
-      @bsd.description = ''
+      @bsd.name = 'freebsd'
+      @bsd.description = 'bsd muito popular'
       expect(@bsd).to be_valid
     end
 
