@@ -11,6 +11,15 @@ class Api::V1::BsdsController < ApplicationController
     render json: @bsd
   end
 
+  def create
+    @bsd = Bsd.new(bsd_params)
+    if @bsd.save
+      render json: @bsd, status: :created, location: api_v1_bsd_url(@bsd)
+    else
+      render json: @bsd.errors, status: :unprocessable_entity
+    end
+  end
+
 private
 
 def set_bsd
