@@ -28,4 +28,13 @@ RSpec.describe Api::V1::BsdsController, type: :controller do
     end
   end
 
+  describe 'PATCH /api/v1/bsds/id' do
+    it 'Consegue atualizar um bsd e retornar status 200?' do
+      bsd = Bsd.last
+      patch :update, params: {bsd: {name: 'freebsd', description: 'bsd muito usado'}, id: bsd.id}
+      expect(response.body).to include_json(name: 'freebsd')
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end
