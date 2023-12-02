@@ -12,7 +12,7 @@ RSpec.describe Bsd, type: :model do
     end
 
     it 'description consegue ser preenchido?' do
-      @bsd.description = ''
+      @bsd.description = 'bsd muito seguro'
       expect(@bsd.description).to eq('bsd muito seguro')
     end
 
