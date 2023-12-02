@@ -26,6 +26,11 @@ RSpec.describe Bsd, type: :model do
       expect(@bsd).to be_valid
     end
 
+    it 'Bsd invalido com campos obrigatorios não preenchidos?' do
+      bsd = Bsd.new
+      expect(bsd).to be_valid
+    end
+
   end
 
 end
