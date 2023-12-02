@@ -1,10 +1,14 @@
 class Api::V1::BsdsController < ApplicationController
 
-  #before_action :set_bsd, only: %i[] # show update destroy
+  before_action :set_bsd, only: %i[show] # show update destroy
 
   def index
     @bsds = Bsd.all 
     render json: @bsds
+  end
+
+  def show
+    render json: @bsd
   end
 
 private
