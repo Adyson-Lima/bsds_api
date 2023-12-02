@@ -18,4 +18,14 @@ RSpec.describe Bsd, type: :model do
 
   end
 
+  describe 'Testes de validacao do model Bsd' do
+
+    it 'Bsd valido com campos obrigatorios preenchidos?' do
+      @bsd.name = ''
+      @bsd.description = ''
+      expect(@bsd).to be_valid
+    end
+
+  end
+
 end
