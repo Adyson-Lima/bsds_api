@@ -11,6 +11,11 @@ RSpec.describe Bsd, type: :model do
       expect(@bsd.name).to eq('openbsd')
     end
 
+    it 'description consegue ser preenchido?' do
+      @bsd.description = ''
+      expect(@bsd.description).to eq('bsd muito seguro')
+    end
+
   end
 
 end
