@@ -37,4 +37,13 @@ RSpec.describe Api::V1::BsdsController, type: :controller do
     end
   end
 
+  describe 'DELETE /api/v1/bsds/id' do
+    it 'Consegue excluir um bsd e retornar status 204?' do
+      bsd = Bsd.last
+      delete :destroy, params: {id: bsd.id}
+      expect(Bsd.all).not_to include(bsd)
+      expect(response).to have_http_status(204)
+    end
+  end
+
 end
