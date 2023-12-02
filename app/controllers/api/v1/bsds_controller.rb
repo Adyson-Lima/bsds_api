@@ -1,6 +1,6 @@
 class Api::V1::BsdsController < ApplicationController
 
-  before_action :set_bsd, only: %i[show] # show update destroy
+  before_action :set_bsd, only: %i[show update] # show update destroy
 
   def index
     @bsds = Bsd.all 
@@ -15,6 +15,14 @@ class Api::V1::BsdsController < ApplicationController
     @bsd = Bsd.new(bsd_params)
     if @bsd.save
       render json: @bsd, status: :created, location: api_v1_bsd_url(@bsd)
+    else
+      render json: @bsd.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @bsd.update(bsd_params)
+      render json: @bsd
     else
       render json: @bsd.errors, status: :unprocessable_entity
     end
