@@ -1,6 +1,6 @@
 class Api::V1::BsdsController < ApplicationController
 
-  before_action :set_bsd, only: %i[show update] # show update destroy
+  before_action :set_bsd, only: %i[show update destroy] # show update destroy
 
   def index
     @bsds = Bsd.all 
@@ -26,6 +26,10 @@ class Api::V1::BsdsController < ApplicationController
     else
       render json: @bsd.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @bsd.destroy!
   end
 
 private
