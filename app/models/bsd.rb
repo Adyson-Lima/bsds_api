@@ -1,0 +1,2 @@
+class Bsd < ApplicationRecord
+end

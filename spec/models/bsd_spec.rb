@@ -7,7 +7,7 @@ RSpec.describe Bsd, type: :model do
   describe 'Testes de preenchimento do model Bsd' do
 
     it 'name consegue ser preenchido?' do
-      @bsd.name = ''
+      @bsd.name = 'openbsd'
       expect(@bsd.name).to eq('openbsd')
     end
 
